@@ -1,3 +1,11 @@
+// Anything that requires a file path (- textures in object builder) would be (e.g. a model path)
+// \YOURAPPEND_WeaponName\pathtomodel
+// do not put the .p3d file extension, this is the only circumstance,
+ 
+// textures in object builder would be:
+// YOURAPPEND_WeaponName\texturefile
+// Textures have to be in either .jpg (not .jpeg), or .paa formats!
+
 class CfgPatches
 {
 	class YOURAPPEND_WeaponName
