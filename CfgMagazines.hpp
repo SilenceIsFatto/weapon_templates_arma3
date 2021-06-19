@@ -4,7 +4,7 @@ class CfgMagazines
 
 	class CA_Magazine;
 
-	class WeaponName_#ofroundsrnd: CA_Magazine 
+	class WeaponName_magcountrnd: CA_Magazine 
 	{
 		scope = 2; /// or 2, to be precise
 		displayName = "Name Of Mag";
