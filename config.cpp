@@ -63,6 +63,7 @@ class CfgWeapons
 /////////////////////////////////////////////////////  I R O N S I G H T S  /////////////////////////////////////////////////////
 
 		handAnim[] = {"OFP2_ManSkeleton", "\A3\Weapons_F_Gamma\Smgs\pdw2000\data\Anim\SMG_03.rtm"}; // {"this is pointless to change","path\to\animationthatbestfitsyourweapon.rtm"}
+		// You can probably find the animation above by digging into the arma files.
 		dexterity = 1.8;
 		modes[] = {"FullAuto"}; /// Includes fire modes for AI, FullAuto, Single, Burst
 
