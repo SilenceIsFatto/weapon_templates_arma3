@@ -28,7 +28,9 @@ class MuzzleSlot;
 class CowsSlot;
 class PointerSlot;
 class UnderBarrelSlot;
-class Rifle_Base_F; // Replace this with the base class of whatever rifle you're copying off of
+class Rifle_Base_F; // Replace this with the base class of whatever rifle you're copying off of, to do this, equip the gun you want to inherit off of. Then run this in the debug console:
+// configname (inheritsFrom (configfile >> "cfgweapons" >> (primaryWeapon player)));
+// This should output the base class. Replace ALL "Rifle_Base_F" instances in this script with the new base class.
 
 #include "cfgMagazines.hpp" /// specific magazines for this rifle
 #include "cfgAmmo.hpp" /// specific ammo for this rifle
