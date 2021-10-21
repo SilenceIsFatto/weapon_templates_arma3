@@ -22,10 +22,6 @@ class CfgAmmo
 		tracerStartTime = 0.05; // seconds
 		tracerEndTime = 1; // seconds
 		airFriction = -0.00096;
-		/* z:
-			air friction value was set carefully to match RL ballistic table with high fidelity
-			source: http://www.shootingtimes.com/wp-content/blogs.dir/11/files/6-5mm-grendel-the-round-the-military-ought-to-have/6-5mm-grendel_009.jpg
-		*/
 		
 		dangerRadiusBulletClose 		= 8;	/// defines how far the AI gets alerted by the projectile's impact or explosion. Default value -1 makes this distance be automatically derived from the hit and indirectHit properties.
 		dangerRadiusHit 				= 12;	/// defines how far the AI gets alerted by the bullet's pass. Default value -1 disables the detection. (works only for bullets, no other projectiles)
