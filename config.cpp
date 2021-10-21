@@ -8,7 +8,7 @@
 
 class CfgPatches
 {
-	class YOURAPPEND_WeaponName
+	class YOURAPPEND_WeaponName_config
 	{
 		units[]={};
 		weapons[]={"YOURAPPEND_WeaponName"};
@@ -16,7 +16,7 @@ class CfgPatches
 		requiredAddons[]={"A3_Weapons_F"};
 	};
 };
-/// All firemodes, to be sure
+/// All firemodes
 class Mode_SemiAuto;
 class Mode_Burst;
 class Mode_FullAuto;
@@ -32,42 +32,35 @@ class Rifle_Base_F; // Replace this with the base class of whatever rifle you're
 // configname (inheritsFrom (configfile >> "cfgweapons" >> (primaryWeapon player)));
 // This should output the base class. Replace ALL "Rifle_Base_F" instances in this script with the new base class.
 
-#include "cfgMagazines.hpp" /// specific magazines for this rifle
-#include "cfgAmmo.hpp" /// specific ammo for this rifle
+#include "cfgMagazines.hpp"
+#include "cfgAmmo.hpp"
 
 class CfgWeapons
 {
 	class WeaponName_Base: Rifle_Base_F // Your weapon inheriting off of rifle base class
 	{
-		magazines[] = {"", ""}; // We'll get onto these later
-		descriptionShort = "";// Description of the weapon
-        class Library {
-        libtextdesc = "";//another description
-        };
-		descriptionUse = ""; // Name of the weapon
-		reloadAction = ""; // Reload animation?
-		// Size of recoil sway of the cursor
+		magazines[] = {"", ""};
+		descriptionShort = "";
+		class Library {
+		libtextdesc = "";
+		};
+		descriptionUse = "";
+		reloadAction = "";
 		maxRecoilSway=0.0125;
-        // Speed at which the recoil sway goes back to zero (from maxRecoilSway to 0 in 1/swayDecaySpeed seconds)
-        swayDecaySpeed=1.25;
-		/// inertia coefficient of the weapon
+        	swayDecaySpeed=1.25;
 		inertia = 0.5;
-		/// positive value defines speed of the muzzle independent on the magazine setting, negative value is a coefficient of magazine initSpeed
 		initSpeed = -1; /// this means that initSpeed of magazine is used
-/////////////////////////////////////////////////////  I R O N S I G H T S  /////////////////////////////////////////////////////
 		opticsZoomMin=0.375;
 		opticsZoomMax=1.1;
 		opticsZoomInit=0.75;
 		distanceZoomMin = 300;
 		distanceZoomMax = 300;
-/////////////////////////////////////////////////////  I R O N S I G H T S  /////////////////////////////////////////////////////
 
 		handAnim[] = {"OFP2_ManSkeleton", "\A3\Weapons_F_Gamma\Smgs\pdw2000\data\Anim\SMG_03.rtm"}; // {"this is pointless to change","path\to\animationthatbestfitsyourweapon.rtm"}
 		// You can probably find the animation above by digging into the arma files.
 		dexterity = 1.8;
-		modes[] = {"FullAuto"}; /// Includes fire modes for AI, FullAuto, Single, Burst
+		modes[] = {"FullAuto"}; // Includes fire modes
 
-    ////////////////////////////////////////////////////// NO OPTICS ///////////////////////////////////////////////////////////
 	class FullAuto: Mode_FullAuto /// Pew
 	{
 			sounds[] = {StandardSound};
@@ -84,28 +77,28 @@ class CfgWeapons
                 begin2[] = {"A3\sounds_f\weapons\SMG_02\SMG_02_st_2b", 1.020000, 1, 600};
                 begin3[] = {"A3\sounds_f\weapons\SMG_02\SMG_02_st_3b", 1.000000, 1, 600};
                 soundBegin[] = {"begin1", 0.330000, "begin2", 0.330000, "begin3", 0.340000};//chance of sound playing. So 3 sounds = 33% each for a fair distribution.
-            }; // Weapon sounds
+            };
 
 			reloadTime = 0.096; /// means some 625 rounds per minute
 			dispersion = 0.00087; /// A bit less than 3 MOA
 
-            memoryPointCamera = "eye";//the named selection in our model.p3d's memory LOD to be used for the camera's position when in ADS view (Aim Down Sights)
-			minRange = 10; minRangeProbab = 0.5; 	/// Task Force Balance black magic - this is the probability which AI thinks it would hit target at set range with
-			midRange = 10; midRangeProbab = 0.7; 	/// it is no real probability of hit, just used for AI to compute if the shot is worth to take - AI chooses highest
-			maxRange = 10; maxRangeProbab = 0.3; 	/// probability of the weapon, does some calculation and compares it with calculated probability of other weapons
+            		memoryPointCamera = "eye";// the named selection in our model.p3d's memory LOD
+			minRange = 10; minRangeProbab = 0.5;
+			midRange = 10; midRangeProbab = 0.7;
+			maxRange = 10; maxRangeProbab = 0.3;
 		};
 	};
 	class YOURAPPEND_WeaponName: WeaponName_Base
 	{
-		scope = 2; /// should be visible and useable in game
-		displayName = ""; /// Weapon Name
-		model = ""; /// path to model
+		scope = 2; // 0 = not usable at all, 1 = usable but not visible, 2 = visible
+		displayName = ""; // Weapon Name
+		model = ""; // Path to model
 
 		picture = ""; // inventory picture
 		UiPicture = ""; // inventory picture
 
-		weaponInfoType = "RscWeaponZeroing"; /// display with zeroing is good for iron sights
+		weaponInfoType = "RscWeaponZeroing";
 
-		muzzles[] = {this}; /// to be able to switch between bullet muzzle and TGL
+		muzzles[] = {this};
 	};
 };
