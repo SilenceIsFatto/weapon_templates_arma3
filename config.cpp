@@ -3,7 +3,7 @@
 // do not put the .p3d file extension, this is the only circumstance,
  
 // textures in object builder would be:
-// YOURAPPEND_WeaponName\texturefile
+// YOURAPPEND_WeaponName\texturefile.fileformat
 // Textures have to be in either .jpg (not .jpeg), or .paa formats!
 
 class CfgPatches
